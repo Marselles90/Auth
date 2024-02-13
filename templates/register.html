@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body {
+        background-color: #000;
+        color: #FF0000;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        color: #FF0000;
+        text-align: center;
+    }
+    
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+    }
+    
+    input,
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        background-color: #555;
+        border: 1px solid #FF0000;
+        color: #FF0000;
+        border-radius: 5px;
+    }
+    
+    button {
+        background-color: #FF0000;
+        color: #000;
+        cursor: pointer;
+        font-size: 14px; /* Уменьшаем размер кнопок */
+    }
+    
+    button:hover {
+        background-color: #900;
+    }
+    
+    a {
+        color: #FF0000;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+
+
+    </style>
+</head>
+<body>
+    
+    <h1>Регистрация</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_register.as_p }}
+
+        <button type="submit">Зарегистрироваться</button>
+    
+
+    <a href="{% url 'auth' %}"><button type="button">Уже есть аккаунт?</button></a>
+    <a href="{% url 'index' %}"><button type="button">На главную</button></a>
+</form>
+</body>
+</html>

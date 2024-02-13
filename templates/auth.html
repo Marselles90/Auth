@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body {
+        background-color: #000;
+        color: #FF0000;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        color: #FF0000;
+    }
+    
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+    }
+    
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        background-color: #555;
+        border: 1px solid #FF0000;
+        color: #FF0000;
+        border-radius: 5px;
+    }
+    
+    button {
+        background-color: #FF0000;
+        color: #000;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #900;
+    }
+    
+    p {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    a {
+        color: #FF0000;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="username">
+        <input type="password" name="password">
+        
+        <button type="submit">Авторизоваться</button>
+    </form>
+    <p><a href="{% url 'register' %}">Зарегистрироваться</a></p>
+    <p><a href="{% url 'index' %}">На главную</a></p>
+
+
+
+</body>
+</html>

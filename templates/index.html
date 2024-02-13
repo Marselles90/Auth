@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    background-color: #000;
+    color: #FF0000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #FF0000;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #FF0000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Размещение ссылок в центре */
+p a {
+    display: block;
+}
+
+/* Если пользователь аутентифицирован, покажите его имя и кнопку "Выйти" */
+    {% if user.is_authenticated %}
+    p {
+        margin-top: 0; /* Убираем верхний отступ, если пользователь аутентифицирован */
+    }
+
+    p.user-info {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Выделение кнопки "Выйти" */
+    p a.exit-link {
+        color: #FF0000;
+        font-weight: bold;
+    }
+
+    p a.exit-link:hover {
+        text-decoration: underline;
+    }
+    {% endif %}
+
+    </style>
+</head>
+<body>
+    <h1>Главная страница</h1>
+    
+
+    {% if user.is_authenticated %} 
+    <p>Имя: {{ user.username }}</p>
+    <br>
+    <p><a href="{% url 'exit' %}">Выйти</a></p>
+    <p><a href="{% url 'transaction' %}">Транзакции</a></p>
+    {% else %}
+    
+    <p><a href="{% url 'auth' %}">Войти</a></p>
+    <p><a href="{% url 'register' %}">Зарегестрироваться</a></p>
+
+    {% endif %}
+
+<br><br><br>
+
+
+
+</body>
+</html>
